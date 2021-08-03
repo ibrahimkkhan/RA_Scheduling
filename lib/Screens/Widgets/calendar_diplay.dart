@@ -25,7 +25,7 @@ class _CalendarDState extends State<CalendarD> {
     var shiftsList = day.getShifts();
     shiftsWidgetList.add(Text(day.toString()));
     for (Shift shift in shiftsList){
-      var shiftW = ShiftsDisplay(shiftName: shift.shiftName, currentUID: '',);
+      var shiftW = ShiftsDisplay(shiftName: shift.shiftName, currentUID: '', userTakingShift: '',);
       shiftsWidgetList.add(shiftW);
     }
     return shiftsWidgetList;

@@ -12,14 +12,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/choose_shift' : (context) => ChooseShiftScreen(),
+        '/choose_shift' : (context) => ChooseShiftScreen(currentUID: "1115661851",),
         
       },
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChooseShiftScreen(),
+      home: ChooseShiftScreen(currentUID:"1115661851",),
     );
   }
 }
+
+
+//! Need to take the shifts from collection and update them on the calendar (remember to convert Date and time from String to the actual formats)
+//! Day class may not be needed. Rethink design!
+//! As user clicks the shift update accordingly 
+//! 

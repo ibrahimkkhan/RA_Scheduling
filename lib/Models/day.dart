@@ -18,17 +18,17 @@ class Day{
   List<Shift> getShifts(){
     switch(weekDayName){
       case "Friday":
-        shiftsOnDay.add(Shift("DA1"));
-        shiftsOnDay.add(Shift("DA2"));
-        shiftsOnDay.add(Shift("RA1"));
+        // shiftsOnDay.add(Shift("DA1"));
+        // shiftsOnDay.add(Shift("DA2"));
+        // shiftsOnDay.add(Shift("RA1"));
       break;
 
       default:
-        shiftsOnDay.add(Shift("DA1"));
-        shiftsOnDay.add(Shift("DA2"));
-        shiftsOnDay.add(Shift("DA3"));
-        shiftsOnDay.add(Shift("RA1"));
-        shiftsOnDay.add(Shift("RA1"));
+        // shiftsOnDay.add(Shift("DA1"));
+        // shiftsOnDay.add(Shift("DA2"));
+        // shiftsOnDay.add(Shift("DA3"));
+        // shiftsOnDay.add(Shift("RA1"));
+        // shiftsOnDay.add(Shift("RA1"));
 
       // case "":
 

@@ -2,12 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ra_scheduling/Models/calendar.dart';
+import 'package:ra_scheduling/Screens/Widgets/add_shift_dialog.dart';
 import 'package:ra_scheduling/Screens/Widgets/calendar_diplay.dart';
 import 'package:ra_scheduling/Services/database.dart';
 
 
 class ChooseShiftScreen extends StatefulWidget {
-  ChooseShiftScreen({Key? key}) : super(key: key);
+  var currentUID;
+
+
+  ChooseShiftScreen({Key? key, required this.currentUID, currentID}) : super(key: key);
+
+
 
   @override
   _ChooseShiftScreenState createState() => _ChooseShiftScreenState();
@@ -29,10 +35,22 @@ class _ChooseShiftScreenState extends State<ChooseShiftScreen> {
   //   return null;
   // }
 
+
+  Future<void> _showMyDialog() async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AddShift( currentUID: widget.currentUID,);
+    },
+  );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
           appBar: AppBar(
+            leading: RaisedButton(onPressed: _showMyDialog,),
             title: Text("Users"),
           ),
           body: Container(child: Row(children: [
