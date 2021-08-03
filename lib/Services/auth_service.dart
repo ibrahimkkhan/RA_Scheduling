@@ -21,7 +21,7 @@ class AuthService{
       
       // user.updateProfile(displayName: name);
       //_createPersonFromFirebase(user);
-      await DatabaseService(uid:uid).updateUserData(name);
+      await DatabaseService(uid:uid, name: name).updateUserData(name);
     }catch (e){
       print(e.toString());  
     }

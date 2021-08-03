@@ -15,6 +15,7 @@ class ChooseShiftScreen extends StatefulWidget {
 
 class _ChooseShiftScreenState extends State<ChooseShiftScreen> {
   final String currentUID = "12132423";
+  final String name = "Hello";
 
   // var from = DateTime.now();
   // var to = DateTime.now().add(const Duration(days: 30));
@@ -38,7 +39,7 @@ class _ChooseShiftScreenState extends State<ChooseShiftScreen> {
              Flexible(  
               flex: 1,
               child: StreamBuilder<QuerySnapshot>(
-                stream: DatabaseService(uid: currentUID).getRealtimeUpdates(),
+                stream: DatabaseService(uid: currentUID, name: name).getRealtimeUpdates(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
                     return Text('Something went wrong');
@@ -48,11 +49,11 @@ class _ChooseShiftScreenState extends State<ChooseShiftScreen> {
                     return Text("Loading");
                   }
 
-                  return new ListView(
+                  return ListView(
                     children:
                         snapshot.data!.docs.map((DocumentSnapshot document) {
-                      return new ListTile(
-                        title: new Text(document.data()['name']),
+                      return ListTile(
+                        title: Text(document.data()['name']),
                       );
                     },).toList(),
                   );

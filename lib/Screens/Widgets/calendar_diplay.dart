@@ -21,14 +21,14 @@ class _CalendarDState extends State<CalendarD> {
     return calendar.getCalendarData();
   }
   List<Widget> displayShifts(Day day) {
-    List<Widget> listOfShiftsW = [];
-    var listOfShifts = day.getShifts();
-    listOfShiftsW.add(Text(day.toString()));
-    for (Shift shift in listOfShifts){
-      var shiftW = ShiftsDisplay(shiftName: shift.shiftName);
-      listOfShiftsW.add(shiftW);
+    List<Widget> shiftsWidgetList = [];
+    var shiftsList = day.getShifts();
+    shiftsWidgetList.add(Text(day.toString()));
+    for (Shift shift in shiftsList){
+      var shiftW = ShiftsDisplay(shiftName: shift.shiftName, currentUID: '',);
+      shiftsWidgetList.add(shiftW);
     }
-    return listOfShiftsW;
+    return shiftsWidgetList;
   }
 
   @override
@@ -46,8 +46,8 @@ class _CalendarDState extends State<CalendarD> {
       ),
       itemCount: calendarDay.length, 
       itemBuilder: (context, index) {
-        var listOfShiftsW = displayShifts(calendarDay.elementAt(index));
-        return Card(child: FittedBox(alignment: Alignment.topCenter, child: Column(children: listOfShiftsW,)), color: Colors.amberAccent,);
+        var shiftsWidgetList = displayShifts(calendarDay.elementAt(index));
+        return Card(child: FittedBox(alignment: Alignment.topCenter, child: Column(children: shiftsWidgetList,)), color: Colors.amberAccent,);
       },);
   }
 

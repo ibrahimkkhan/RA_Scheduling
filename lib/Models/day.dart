@@ -1,6 +1,4 @@
-
-
-import 'package:ra_scheduling/Models/shift.dart';
+ import 'package:ra_scheduling/Models/shift.dart';
 
 class Day{
   late int day;

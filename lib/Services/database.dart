@@ -1,21 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ra_scheduling/Models/Shift.dart';
+import 'package:ra_scheduling/Models/shift.dart';
 
 
 class DatabaseService {
 
   var uid;
+  final String name;
+  
 
-  DatabaseService({required this.uid});
+  DatabaseService({required this.uid, required this.name});
 
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
 
 
+      
+
+
+
   Future updateUserData(String name)async{
-    print("idhar");
     return await userCollection
         .doc(uid).set({"name": name});
+  }
+
+  
+   String get nameOf {
+    return this.name;
   }
 
   // Future updateUserData(String name, List<Shift> shifts) async {
@@ -31,12 +41,10 @@ class DatabaseService {
   }
 
   Future <List<String>> fetchUsers() async {
-    print("ewkjfdweijdwqeh");
     List<String> names = [];
     try{
       QuerySnapshot uids =
         await userCollection.get();
-        print("hereee");
     
         
 
@@ -50,6 +58,19 @@ class DatabaseService {
     }
     return names;    
   }
+
+
+  Future updateUserShift(String shiftName)async{
+    return await userCollection
+        .doc(uid).set({"shift": shiftName});
+  }
+
+
+
+
+   
+
+
 
     
 
